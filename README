@@ -99,3 +99,7 @@ The icon:
 The Tuned icon was created by Mariia Leonova <mleonova@redhat.com> and it is
 licensed under Creative Commons Attribution-ShareAlike 3.0 license
 (http://creativecommons.org/licenses/by-sa/3.0/legalcode).
+aptitude install python3-configobj
+pip3 install procfs3
+aptitude install python3-decorator
+aptitude install python3-pyudev
