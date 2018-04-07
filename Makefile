@@ -205,7 +205,7 @@ install: install-dirs
 	-desktop-file-install --dir=$(DESTDIR)$(DATADIR)/applications tuned-gui.desktop
 
 clean:
-	find -name "*.pyc" | xargs rm -f
+	find -iname "*.pyc" -o -iname '*~' | xargs rm -f
 	rm -rf $(VERSIONED_NAME) rpm-build-dir
 
 test:
