@@ -351,7 +351,7 @@ fi
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/tuned/profile_mode
 %config(noreplace) %{_sysconfdir}/tuned/tuned-main.conf
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/tuned/bootcmdline
-%{_sysconfdir}/dbus-1/system.d/com.redhat.tuned.conf
+%{_sysconfdir}/dbus-1/system.d/com.ubuntu.tuned.conf
 %verify(not size mtime md5) %{_sysconfdir}/modprobe.d/tuned.conf
 %{_tmpfilesdir}/tuned.conf
 %{_unitdir}/tuned.service
@@ -363,7 +363,7 @@ fi
 %{_mandir}/man8/tuned*
 %dir %{_datadir}/tuned
 %{_datadir}/tuned/grub2
-%{_datadir}/polkit-1/actions/com.redhat.tuned.policy
+%{_datadir}/polkit-1/actions/com.ubuntu.tuned.policy
 %ghost %{_sysconfdir}/modprobe.d/kvm.rt.tuned.conf
 
 %files gtk
@@ -375,7 +375,7 @@ fi
 %{python2_sitelib}/tuned/gtk
 %endif
 %{_datadir}/tuned/ui
-%{_datadir}/polkit-1/actions/com.redhat.tuned.gui.policy
+%{_datadir}/polkit-1/actions/com.ubuntu.tuned.gui.policy
 %{_datadir}/icons/hicolor/scalable/apps/tuned.svg
 %{_datadir}/applications/tuned-gui.desktop
 

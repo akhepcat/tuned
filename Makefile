@@ -59,8 +59,8 @@ release-cp: release-dir
 
 	cp -a tuned.py tuned.spec tuned.service tuned.tmpfiles Makefile tuned-adm.py \
 		tuned-adm.bash dbus.conf recommend.conf tuned-main.conf 00_tuned \
-		bootcmdline modules.conf com.redhat.tuned.policy \
-		com.redhat.tuned.gui.policy tuned-gui.py tuned-gui.glade \
+		bootcmdline modules.conf com.ubuntu.tuned.policy \
+		com.ubuntu.tuned.gui.policy tuned-gui.py tuned-gui.glade \
 		tuned-gui.desktop $(VERSIONED_NAME)
 	cp -a doc experiments libexec man profiles systemtap tuned contrib icons \
 		$(VERSIONED_NAME)
@@ -175,14 +175,14 @@ install: install-dirs
 	install -Dpm 0644 tuned.service $(DESTDIR)$(UNITDIR)/tuned.service
 
 	# dbus configuration
-	install -Dpm 0644 dbus.conf $(DESTDIR)$(SYSCONFDIR)/dbus-1/system.d/com.redhat.tuned.conf
+	install -Dpm 0644 dbus.conf $(DESTDIR)$(SYSCONFDIR)/dbus-1/system.d/com.ubuntu.tuned.conf
 
 	# grub template
 	install -Dpm 0755 00_tuned $(DESTDIR)$(SYSCONFDIR)/grub.d/00_tuned
 
 	# polkit configuration
-	install -Dpm 0644 com.redhat.tuned.policy $(DESTDIR)$(DATADIR)/polkit-1/actions/com.redhat.tuned.policy
-	install -Dpm 0644 com.redhat.tuned.gui.policy $(DESTDIR)$(DATADIR)/polkit-1/actions/com.redhat.tuned.gui.policy
+	install -Dpm 0644 com.ubuntu.tuned.policy $(DESTDIR)$(DATADIR)/polkit-1/actions/com.ubuntu.tuned.policy
+	install -Dpm 0644 com.ubuntu.tuned.gui.policy $(DESTDIR)$(DATADIR)/polkit-1/actions/com.ubuntu.tuned.gui.policy
 
 	# manual pages
 	$(foreach man_section, 5 7 8, $(foreach file, $(wildcard man/*.$(man_section)), \
@@ -202,7 +202,7 @@ install: install-dirs
 
 	# desktop file
 	install -dD $(DESTDIR)$(DATADIR)/applications
-	desktop-file-install --dir=$(DESTDIR)$(DATADIR)/applications tuned-gui.desktop
+	-desktop-file-install --dir=$(DESTDIR)$(DATADIR)/applications tuned-gui.desktop
 
 clean:
 	find -name "*.pyc" | xargs rm -f

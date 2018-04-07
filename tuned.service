@@ -8,7 +8,7 @@ Documentation=man:tuned(8) man:tuned.conf(5) man:tuned-adm(8)
 [Service]
 Type=dbus
 PIDFile=/run/tuned/tuned.pid
-BusName=com.redhat.tuned
+BusName=com.ubuntu.tuned
 ExecStart=/usr/sbin/tuned -l -P
 
 [Install]
